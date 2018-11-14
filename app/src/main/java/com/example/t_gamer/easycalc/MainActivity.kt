@@ -2,9 +2,11 @@ package com.example.t_gamer.easycalc
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    // TODO - FAZER CALCULOS
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -12,11 +14,11 @@ class MainActivity : AppCompatActivity() {
 
         setNumbersClickListeners()
         setOperatorsClickListeners()
-
     }
 
     private fun setNumbersClickListeners() {
-        zeroTXT.setOnClickListener { appendOnOperation("0", true) }
+//        todo repensar o canClear
+        zeroTXT.setOnClickListener { appendOnOperation((it as Button).text.toString()) }
         oneTXT.setOnClickListener { appendOnOperation("1", true) }
         twoTXT.setOnClickListener { appendOnOperation("2", true) }
         threeTXT.setOnClickListener { appendOnOperation("3", true) }
@@ -37,18 +39,21 @@ class MainActivity : AppCompatActivity() {
         parenthesisLeftTXT.setOnClickListener { appendOnOperation("(", false) }
         parenthesisRightTXT.setOnClickListener { appendOnOperation(")", false) }
         clearTXT.setOnClickListener {
-            operationTXT.text = ""
-            resultTXT.text = ""
-        }
-        backspaceTXT.setOnClickListener {
+            //TODO separar em uma função
             if (operationTXT.text.toString().isNotEmpty()) {
-                operationTXT.text =
-                        operationTXT.text.toString().removeRange(operationTXT.text.length - 1, operationTXT.text.length)
+                operationTXT.text = operationTXT.text.toString().dropLast(1)
             }
         }
+        clearTXT.setOnLongClickListener{
+            operationTXT.text = ""
+            resultTXT.text = ""
+            true
+        }
+//        backspaceTXT.setOnClickListener {
+//        }
     }
 
-    private fun appendOnOperation(value: String, canClear: Boolean) {
+    private fun appendOnOperation(value: String, canClear: Boolean = true) {
         if (canClear) {
             resultTXT.text = ""
             operationTXT.append(value)

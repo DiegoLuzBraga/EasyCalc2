@@ -14,31 +14,31 @@
         <item name="android:background">@color/colorBlack</item>
     </style>
 
-    <style name="MainNumbersStyle" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="MainNumbersStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:gravity">end</item>
     </style>
-
-    <style name="NumbersStyle">
+    <!--todo atenção aos parents-->
+    <style name="NumbersStyle" parent="Base.TextAppearance.AppCompat.Button">
         <item name="android:background">@color/colorNumber</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">24dp</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">0.5dp</item>
     </style>
 
-    <style name="ActionStyle">
+    <style name="ActionStyle" parent="Base.TextAppearance.AppCompat.Button">
         <item name="android:color">@color/colorWhite</item>
         <item name="android:background">@color/colorAction</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">0.5dp</item>
