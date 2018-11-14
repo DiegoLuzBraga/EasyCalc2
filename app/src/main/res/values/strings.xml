@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">EasyCalc</string>
+    <string name="dot">.</string>
+    <string name="number_zero">0</string>
+    <string name="number_one">1</string>
+    <string name="number_two">2</string>
+    <string name="number_three">3</string>
+    <string name="number_four">4</string>
+    <string name="number_five">5</string>
+    <string name="number_six">6</string>
+    <string name="number_seven">7</string>
+    <string name="number_eight">8</string>
+    <string name="number_nine">9</string>
+    <string name="action_clear">CE</string>
+    <string name="action_sum">+</string>
+    <string name="action_less">-</string>
+    <string name="action_equal">=</string>
+    <string name="action_multi">*</string>
+    <string name="action_divide">/</string>
+    <string name="action_parenthesis_left">(</string>
+    <string name="action_parenthesis_right">)</string>
+</resources>
