@@ -2,11 +2,16 @@ package com.example.t_gamer.easycalc
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     // TODO - FAZER CALCULOS
+
+    private var operator: String = ""
+    private var firstNumber: Double = 0.0
+    private var secondNumber: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,50 +22,94 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setNumbersClickListeners() {
-//        todo repensar o canClear
-        zeroTXT.setOnClickListener { appendOnOperation((it as Button).text.toString()) }
-        oneTXT.setOnClickListener { appendOnOperation("1", true) }
-        twoTXT.setOnClickListener { appendOnOperation("2", true) }
-        threeTXT.setOnClickListener { appendOnOperation("3", true) }
-        fourTXT.setOnClickListener { appendOnOperation("4", true) }
-        fiveTXT.setOnClickListener { appendOnOperation("5", true) }
-        sixTXT.setOnClickListener { appendOnOperation("6", true) }
-        sevenTXT.setOnClickListener { appendOnOperation("7", true) }
-        eightTXT.setOnClickListener { appendOnOperation("8", true) }
-        nineTXT.setOnClickListener { appendOnOperation("9", true) }
+        zeroBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
+        oneBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
+        twoBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
+        threeBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
+        fourBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
+        fiveBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
+        sixBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
+        sevenBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
+        eightBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
+        nineBTN.setOnClickListener { appendNumbers((it as Button).text.toString()) }
     }
 
     private fun setOperatorsClickListeners() {
-        sumTXT.setOnClickListener { appendOnOperation("+", false) }
-        lessTXT.setOnClickListener { appendOnOperation("-", false) }
-        multiplicationTXT.setOnClickListener { appendOnOperation("*", false) }
-        divisionTXT.setOnClickListener { appendOnOperation("/", false) }
-        dotTXT.setOnClickListener { appendOnOperation(".", false) }
-        parenthesisLeftTXT.setOnClickListener { appendOnOperation("(", false) }
-        parenthesisRightTXT.setOnClickListener { appendOnOperation(")", false) }
-        clearTXT.setOnClickListener {
-            //TODO separar em uma função
-            if (operationTXT.text.toString().isNotEmpty()) {
-                operationTXT.text = operationTXT.text.toString().dropLast(1)
-            }
+        sumBTN.setOnClickListener { appendOperator((it as Button).text.toString()) }
+        lessBTN.setOnClickListener { appendOperator((it as Button).text.toString()) }
+        multiplicationBTN.setOnClickListener { appendOperator((it as Button).text.toString()) }
+        divisionBTN.setOnClickListener { appendOperator((it as Button).text.toString()) }
+        dotBTN.setOnClickListener { appendDot() }
+        clearBTN.setOnClickListener {
+            clearFunctions(false)
         }
-        clearTXT.setOnLongClickListener{
-            operationTXT.text = ""
-            resultTXT.text = ""
+        clearBTN.setOnLongClickListener {
+            clearFunctions()
             true
         }
-//        backspaceTXT.setOnClickListener {
-//        }
+        equalBTN.setOnClickListener { calculate() }
     }
 
-    private fun appendOnOperation(value: String, canClear: Boolean = true) {
-        if (canClear) {
+    private fun clearFunctions(isLong: Boolean = true) {
+        if (isLong) {
+            operationEDT.setText("")
             resultTXT.text = ""
-            operationTXT.append(value)
+            operator = ""
         } else {
-            operationTXT.append(resultTXT.text)
-            operationTXT.append(value)
-            resultTXT.text = ""
+            if (operationEDT.text.toString().isNotEmpty()) {
+                val index = operationEDT.text.toString().length
+                if (operationEDT.text.toString().takeLast(index-1).equals(operator)) {
+                    operator = ""
+                }
+                operationEDT.setText(operationEDT.text.toString().dropLast(1))
+            }
         }
+    }
+
+    private fun appendDot() {
+
+    }
+
+    private fun appendNumbers(value: String) {
+        operationEDT.append(resultTXT.text)
+        operationEDT.append(value)
+    }
+
+    private fun appendOperator(value: String) {
+        if (operationEDT.text.isNotEmpty()) {
+            if (operator.isNotBlank() && operationEDT.text.toString().contains(operator)) {
+                operationEDT.setText(operationEDT.text.toString().replace(operator, value))
+            } else {
+                operationEDT.append(value)
+            }
+            operator = value
+        }
+    }
+
+    private fun calculate() {
+        if (operator.isNotBlank()) {
+            when (operator) {
+                "+" -> sumFun()
+                "-" -> lessFun()
+                "*" -> multiplicationFun()
+                "/" -> divideFun()
+            }
+        }
+    }
+
+    private fun sumFun() {
+
+    }
+
+    private fun lessFun() {
+
+    }
+
+    private fun multiplicationFun() {
+
+    }
+
+    private fun divideFun() {
+
     }
 }

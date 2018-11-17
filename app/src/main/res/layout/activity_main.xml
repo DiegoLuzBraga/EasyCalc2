@@ -6,17 +6,17 @@
         android:layout_height="wrap_content"
         style="@style/MainActivityStyle"
         tools:context=".MainActivity">
-<!--todo repensar a escolha das views-->
     <LinearLayout
             android:id="@+id/mainLL"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="200dp">
 
-        <TextView
-                android:id="@+id/operationTXT"
+        <EditText
+                android:id="@+id/operationEDT"
                 style="@style/MainNumbersStyle"
                 android:textSize="48sp"
+                android:digits="/*-+1234567890."
                 android:maxLines="1"/>
 
         <TextView
@@ -38,19 +38,28 @@
                       android:id="@+id/firstColumnLL">
             <Button
                     style="@style/ActionStyle"
-                    android:id="@+id/clearTXT"
+                    android:id="@+id/clearBTN"
                     android:text="@string/action_clear"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_weight="1"
+                      android:layout_height="0dp">
+            <Button
+                    style="@style/NumbersStyle"
+                    android:id="@+id/sevenBTN"
+                    android:text="@string/number_seven"/>
+            <Button
+                    style="@style/NumbersStyle"
+                    android:id="@+id/eightBTN"
+                    android:text="@string/number_eight"/>
+            <Button
+                    style="@style/NumbersStyle"
+                    android:id="@+id/nineBTN"
+                    android:text="@string/number_nine"/>
             <Button
                     style="@style/ActionStyle"
-                    android:id="@+id/parenthesisLeftTXT"
-                    android:text="@string/action_parenthesis_left"/>
-            <Button
-                    style="@style/ActionStyle"
-                    android:id="@+id/parenthesisRightTXT"
-                    android:text="@string/action_parenthesis_right"/>
-            <Button
-                    style="@style/ActionStyle"
-                    android:id="@+id/divisionTXT"
+                    android:id="@+id/divisionBTN"
                     android:text="@string/action_divide"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
@@ -59,41 +68,20 @@
                       android:layout_height="0dp">
             <Button
                     style="@style/NumbersStyle"
-                    android:id="@+id/sevenTXT"
-                    android:text="@string/number_seven"/>
-            <Button
-                    style="@style/NumbersStyle"
-                    android:id="@+id/eightTXT"
-                    android:text="@string/number_eight"/>
-            <Button
-                    style="@style/NumbersStyle"
-                    android:id="@+id/nineTXT"
-                    android:text="@string/number_nine"/>
-            <Button
-                    style="@style/ActionStyle"
-                    android:id="@+id/multiplicationTXT"
-                    android:text="@string/action_multi"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent"
-                      android:orientation="horizontal"
-                      android:layout_weight="1"
-                      android:layout_height="0dp">
-            <Button
-                    style="@style/NumbersStyle"
-                    android:id="@+id/fourTXT"
+                    android:id="@+id/fourBTN"
                     android:text="@string/number_four"/>
             <Button
                     style="@style/NumbersStyle"
-                    android:id="@+id/fiveTXT"
+                    android:id="@+id/fiveBTN"
                     android:text="@string/number_five"/>
             <Button
                     style="@style/NumbersStyle"
-                    android:id="@+id/sixTXT"
+                    android:id="@+id/sixBTN"
                     android:text="@string/number_six"/>
             <Button
                     style="@style/ActionStyle"
-                    android:id="@+id/sumTXT"
-                    android:text="@string/action_sum"/>
+                    android:id="@+id/multiplicationBTN"
+                    android:text="@string/action_multi"/>
         </LinearLayout>
         <LinearLayout
                 android:layout_width="match_parent"
@@ -102,20 +90,20 @@
                 android:layout_height="0dp">
             <Button
                     style="@style/NumbersStyle"
-                    android:id="@+id/oneTXT"
+                    android:id="@+id/oneBTN"
                     android:text="@string/number_one"/>
             <Button
                     style="@style/NumbersStyle"
-                    android:id="@+id/twoTXT"
+                    android:id="@+id/twoBTN"
                     android:text="@string/number_two"/>
             <Button
                     style="@style/NumbersStyle"
-                    android:id="@+id/threeTXT"
+                    android:id="@+id/threeBTN"
                     android:text="@string/number_three"/>
             <Button
                     style="@style/ActionStyle"
-                    android:id="@+id/lessTXT"
-                    android:text="@string/action_less"/>
+                    android:id="@+id/sumBTN"
+                    android:text="@string/action_sum"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:orientation="horizontal"
@@ -123,22 +111,20 @@
                       android:layout_height="0dp">
             <Button
                     style="@style/NumbersStyle"
-                    android:id="@+id/dotTXT"
+                    android:id="@+id/dotBTN"
                     android:text="@string/dot"/>
             <Button
                     style="@style/NumbersStyle"
-                    android:id="@+id/zeroTXT"
+                    android:id="@+id/zeroBTN"
                     android:text="@string/number_zero"/>
-            <ImageView
-                    style="@style/NumbersStyle"
-                    android:id="@+id/backspaceTXT"
-                    android:src="@drawable/backspace"
-                    android:contentDescription="@string/dot"
-                    android:scaleType="center"/>
             <Button
                     style="@style/ActionStyle"
-                    android:id="@+id/equalTXT"
+                    android:id="@+id/equalBTN"
                     android:text="@string/action_equal"/>
+            <Button
+                    style="@style/ActionStyle"
+                    android:id="@+id/lessBTN"
+                    android:text="@string/action_less" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

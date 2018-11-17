@@ -14,13 +14,13 @@
         <item name="android:background">@color/colorBlack</item>
     </style>
 
-    <style name="MainNumbersStyle">
+    <style name="MainNumbersStyle" parent="Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:gravity">end</item>
     </style>
-    <!--todo atenção aos parents-->
+
     <style name="NumbersStyle" parent="Base.TextAppearance.AppCompat.Button">
         <item name="android:background">@color/colorNumber</item>
         <item name="android:layout_width">0dp</item>
