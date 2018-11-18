@@ -17,6 +17,7 @@
     <string name="action_equal">=</string>
     <string name="action_multi">*</string>
     <string name="action_divide">/</string>
-    <string name="action_parenthesis_left">(</string>
-    <string name="action_parenthesis_right">)</string>
+    <string name="alert_title">Operação inválida</string>
+    <string name="alert_message">Só pode ser feita uma operação por vez</string>
+    <string name="alert_negative_button">Ok</string>
 </resources>
